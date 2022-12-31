@@ -1,4 +1,4 @@
-import 'package:circle_flags/circle_flags.dart';
+import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_form_field/src/models/iso_code.dart';
 
@@ -31,9 +31,10 @@ class CountryCodeChip extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         if (showFlag) ...[
-          CircleFlag(
+          CountryFlags.flag(
             country.isoCode.name,
-            size: flagSize,
+            width: flagSize / 3 * 4,
+            height: flagSize,
           ),
           const SizedBox(width: 8),
         ],
@@ -43,6 +44,10 @@ class CountryCodeChip extends StatelessWidget {
             style: textStyle,
             textDirection: textDirection,
           ),
+        const Icon(
+          Icons.chevron_right_outlined,
+          color: Color(0xffAAAAAA),
+        ),
       ],
     );
   }

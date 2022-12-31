@@ -1,4 +1,4 @@
-import 'package:circle_flags/circle_flags.dart';
+import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_form_field/l10n/generated/phone_field_localization.dart';
 
@@ -56,7 +56,9 @@ class CountryList extends StatelessWidget {
     if (_allListElement.isEmpty) {
       return Center(
         child: Text(
-          noResultMessage ?? PhoneFieldLocalization.of(context)?.noResultMessage ?? 'No result found',
+          noResultMessage ??
+              PhoneFieldLocalization.of(context)?.noResultMessage ??
+              'No result found',
           key: const ValueKey('no-result'),
         ),
       );
@@ -74,9 +76,10 @@ class CountryList extends StatelessWidget {
 
         return ListTile(
           key: ValueKey(country.isoCode.name),
-          leading: CircleFlag(
+          leading: CountryFlags.flag(
             country.isoCode.name,
-            size: flagSize,
+            width: flagSize / 3 * 4,
+            height: flagSize,
           ),
           title: Align(
             alignment: AlignmentDirectional.centerStart,

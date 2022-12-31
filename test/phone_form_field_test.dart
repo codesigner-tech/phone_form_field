@@ -1,4 +1,4 @@
-import 'package:circle_flags/circle_flags.dart';
+import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -56,7 +56,7 @@ void main() {
 
       testWidgets('Should display flag', (tester) async {
         await tester.pumpWidget(getWidget());
-        expect(find.byType(CircleFlag), findsWidgets);
+        expect(find.byType(CountryFlags), findsWidgets);
       });
     });
 
@@ -78,7 +78,7 @@ void main() {
 
       testWidgets('Should hide flag', (tester) async {
         await tester.pumpWidget(getWidget(showFlagInInput: false));
-        expect(find.byType(CircleFlag), findsNothing);
+        expect(find.byType(CountryFlags), findsNothing);
       });
     });
 

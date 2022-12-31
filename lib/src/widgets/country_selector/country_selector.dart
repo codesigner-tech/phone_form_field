@@ -90,11 +90,14 @@ class CountrySelectorState extends State<CountrySelector> {
   @override
   didChangeDependencies() {
     super.didChangeDependencies();
-    final localization = PhoneFieldLocalization.of(context) ?? PhoneFieldLocalizationEn();
+    final localization =
+        PhoneFieldLocalization.of(context) ?? PhoneFieldLocalizationEn();
     final isoCodes = widget.countries ?? IsoCode.values;
     final countryRegistry = LocalizedCountryRegistry.cached(localization);
-    final notFavoriteCountries = countryRegistry.whereIsoIn(isoCodes, omit: widget.favoriteCountries);
-    final favoriteCountries = countryRegistry.whereIsoIn(widget.favoriteCountries);
+    final notFavoriteCountries =
+        countryRegistry.whereIsoIn(isoCodes, omit: widget.favoriteCountries);
+    final favoriteCountries =
+        countryRegistry.whereIsoIn(widget.favoriteCountries);
     _countryFinder = CountryFinder(notFavoriteCountries);
     _favoriteCountryFinder = CountryFinder(favoriteCountries, sort: false);
   }
